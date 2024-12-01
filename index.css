@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'MuseoSans';
+  src: url('./src/assets/fonts/MuseoSans-300.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSans5';
+  src: url('./src/assets/fonts/MuseoSans_500.otf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'MuseoSans7';
+  src: url('./src/assets/fonts/MuseoSans_700.otf');
+  font-weight: 700;
+}
+
