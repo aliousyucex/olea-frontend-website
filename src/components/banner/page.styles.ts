@@ -1,12 +1,20 @@
 import { Flex } from "antd";
 import styled from "@emotion/styled";
-
+import BannerImage from '../../assets/banner/hero-banner.jpg';
+import BannerImageMobile from '../../assets/banner/hero-banner-mobil.jpg';
 
 export namespace S {
   export const Container = styled(Flex)`
-    background: green;
+    background: url(${BannerImage}) no-repeat center center;
+    background-size: cover;
     width: 100%;
     height: 700px;
+
+    @media (max-width: 900px) {
+      background: url(${BannerImageMobile}) no-repeat center center;
+      background-size: cover;
+    }
+
   `;
 
   export const Title = styled.span`

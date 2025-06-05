@@ -1,8 +1,11 @@
 {
   "Header": {
-    "about": "Hakkımızda",
+    "followUs": "Bizi Takip Edin",
     "menu": "Menü",
     "rezervation": "Rezervasyon"
   },
-  "GOBR": "GOBR AMA TR"
+  "About": {
+    "description": "Olea Osteria, Beyoğlu'nun kalbinde, İtalya'nın gerçek tatlarını yaşatan özgün bir durak. Özenle seçilmiş menüsündeki her tabak geleneksel İtalyan tariflerine sadık kalınarak, ev yapımı malzemelerle titizlikle hazırlanıyor.\n\nSamimi ve sıcak atmosferiyle Olea, sizleri İtalyan mutfağının ruhunu hissedebileceğiniz bir deneyim yaşamaya davet ediyor."
+  },
+  "GOBR": "GOBR BUT TR"
 }

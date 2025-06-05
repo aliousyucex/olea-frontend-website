@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build-zip": "npm run build && powershell Compress-Archive -Path dist/* -DestinationPath dist/build.zip -Force",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint-fix": "eslint . --fix"
   },
   "dependencies": {
     "@emotion/styled": "^11.13.5",

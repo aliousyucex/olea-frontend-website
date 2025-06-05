@@ -1,37 +1,34 @@
 import React from 'react';
 import {useState} from 'react';
 import ReactDomClient from 'react-dom/client';
-import { useTranslation } from "react-i18next";
-import { Header } from "./src/components/header/page";
-import { Banner } from "./src/components/banner/page";
-import { About } from "./src/components/about/page";
-import { Cards } from "./src/components/cards/page";
+import {useTranslation} from "react-i18next";
+import {Header} from "./src/components/header/page";
+import {Banner} from "./src/components/banner/page";
+import {About} from "./src/components/about/page";
+import {Menu} from "./src/components/menu/page";
+import {Location} from "./src/components/location/page";
+import './src/i18n/i18n';
 
 const App = () => {
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const [renderMode, setRenderMode] = useState<'L' | 'S' | undefined>();
 
-  // Find better practice for this...
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 650) {
-      setRenderMode('L');
-    } else {
-      setRenderMode('S')
-    }
-  })
-
   return (
-    <div style={{fontFamily: 'MuseoSans, sans-serif'}}>
-      <Header size={renderMode} />
+    <div style={{fontFamily: 'MuseoSans, sans-serif', backgroundColor: '#DCDDDE'}}>
+      <Header />
       <Banner />
       <About />
-      <Cards />
+      <Menu />
+      <Location />
       <br />
       {t("GOBR")}
     </div>
   );
 }
 
-const appElement = document.getElementById('app');
-if (!appElement) throw new Error('Failed to find the app element');
-ReactDomClient.createRoot(appElement).render(<App />);
+const root = ReactDomClient.createRoot(document.getElementById('app') as HTMLElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

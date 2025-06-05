@@ -6,9 +6,17 @@ namespace S {
     border: none;
     background: none;
     cursor: pointer;
+    font-size: 16px;
+    color: #CE152D;
+    padding: 0;
+    font-family: 'MuseoSans', sans-serif;
+    font-weight: 400;
+    
+    &:hover {
+      opacity: 0.8;
+    }
   `;
 }
-
 
 export const ChangeLanguageButton = () => {
   return (

@@ -1,10 +1,14 @@
 import { S } from "./page.styles";
+import aboutImage from '../../assets/icons/Tanimlama.png';
+import { useTranslation } from 'react-i18next';
 
 export const About = () => {
+  const { t } = useTranslation();
+
   return (
     <S.Container align="center" justify="center" vertical>
-      <S.Title>ABOUT OLEA PIZZERIA</S.Title>
-      <S.Text>Hebele ve hubeleHebele ve hubeleHebele ve hubeleHebele ve hubeleHebele ve hubeleHebele ve hubele</S.Text>
+      <S.Image src={aboutImage} alt="About" />
+      <S.Description>{t('About.description')}</S.Description>
     </S.Container>
   );
 };
