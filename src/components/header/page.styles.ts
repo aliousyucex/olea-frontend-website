@@ -64,10 +64,51 @@ export namespace S {
     }
   `;
 
+  export const MenuItemContainer = styled.div`
+    position: relative;
+    cursor: pointer;
+  `;
+
   export const MenuItem = styled.div`
     font-size: 16px;
     color: #CE152D;
     cursor: pointer;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  `;
+
+  export const DropdownMenu = styled.div<{isOpen: boolean}>`
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #FFF;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 1001;
+    opacity: ${props => props.isOpen ? '1' : '0'};
+    visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+    transform: translateY(${props => props.isOpen ? '0' : '-10px'});
+    transition: all 0.2s ease;
+  `;
+
+  export const DropdownItem = styled.div`
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #CE152D;
+    cursor: pointer;
+    border-bottom: 1px solid #f5f5f5;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &:hover {
+      background: #f9f9f9;
+    }
   `;
 
   export const MobileMenuButton = styled.div`
@@ -105,6 +146,10 @@ export namespace S {
     z-index: 999;
     opacity: ${props => props.isOpen ? '1' : '0'};
     visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+
+    @media (min-width: 1025px) {
+      display: none;
+    }
   `;
 
   export const MobileMenuItem = styled.div`
@@ -117,6 +162,10 @@ export namespace S {
 
     &:last-child {
       border-bottom: none;
+    }
+    
+    &:hover {
+      background: #f9f9f9;
     }
   `;
 }

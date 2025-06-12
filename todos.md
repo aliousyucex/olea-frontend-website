@@ -1,0 +1,2 @@
+- Font calismiyor
+- i18n kontrolu yapilacak

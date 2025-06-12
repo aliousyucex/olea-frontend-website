@@ -19,6 +19,7 @@ import abbraccioDiPuglia from "../../assets/menu/abbraccio-di-puglia-e-parma.jpg
 import cocktails from "../../assets/menu/cocktails.jpg";
 import rossoEVerde from "../../assets/menu/rosso-e-verde.jpg";
 import semiFreddo from "../../assets/menu/semi-freddo.jpg";
+import {Flex} from "antd";
 
 const menuImages = [
   {src: tagliataManzo2, alt: "Tagliata di Manzo"},
@@ -41,17 +42,35 @@ const menuImages = [
   {src: semiFreddo, alt: "Semi Freddo"}
 ];
 
+const handleMenuClick = (action: string) => {
+  switch (action) {
+    case 'food':
+      window.navigateTo('foodMenu');
+      break;
+    case 'drinks':
+      window.navigateTo('drinkMenu');
+      break;
+  }
+};
+
 export const Menu = () => {
   return (
     <S.Container id="menu">
       <S.Title>MENU</S.Title>
-      <S.GridContainer>
-        {menuImages.map((image, index) => (
-          <S.ImageContainer key={index}>
-            <img src={image.src} alt={image.alt} />
-          </S.ImageContainer>
-        ))}
-      </S.GridContainer>
+      <Flex vertical gap={32}>
+        <S.GridContainer>
+          {menuImages.map((image, index) => (
+            <S.ImageContainer key={index}>
+              <img src={image.src} alt={image.alt} />
+            </S.ImageContainer>
+          ))}
+        </S.GridContainer>
+        <Flex justify="center" align="center" vertical gap={16}>
+          <S.Button type="text" size="large" onClick={() => handleMenuClick('food')}>Food Menu</S.Button>
+          <S.Button type="text" size="large" onClick={() => handleMenuClick('drinks')}>Drink Menu</S.Button>
+        </Flex>
+
+      </Flex>
     </S.Container>
   );
 };

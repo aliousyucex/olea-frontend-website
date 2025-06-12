@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import {Button as AntdButton} from "antd";
 
 export namespace S {
   export const Container = styled.div`
@@ -68,6 +69,20 @@ export namespace S {
         height: auto;
         object-fit: contain;
       }
+    }
+  `;
+
+  export const Button = styled(AntdButton)`
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    color: #CE152D;
+    font-size: 24px;
+
+    &:hover {
+      color: #CE152D;
+      background-color: transparent;
     }
   `;
 } 

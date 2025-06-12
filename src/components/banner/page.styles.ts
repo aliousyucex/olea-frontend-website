@@ -8,13 +8,33 @@ export namespace S {
     background: url(${BannerImage}) no-repeat center center;
     background-size: cover;
     width: 100%;
-    height: 700px;
+    height: 900px;
 
-    @media (max-width: 900px) {
+    @media (max-width: 1200px) {
       background: url(${BannerImageMobile}) no-repeat center center;
       background-size: cover;
+      height: 800px;
     }
 
+    @media (max-width: 768px) {
+      background: url(${BannerImageMobile}) no-repeat center center;
+      background-size: cover;
+      height: 500px;
+    }
+
+  `;
+
+  export const IconImage = styled.img`
+    max-width: 100%;
+    height: auto;
+
+    @media (max-width: 1200px) {
+      max-width: 60%;
+    }
+
+    @media (max-width: 900px) {
+     max-width: 40%;
+    }
   `;
 
   export const Title = styled.span`
