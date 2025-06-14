@@ -48,3 +48,87 @@ export default tseslint.config({
   },
 })
 ```
+
+# Olea Pizzeria - Maintenance Page
+
+Pizza temalı bakım sayfası 🍕
+
+## Kurulum ve Çalıştırma
+
+### Docker ile çalıştırma
+
+```bash
+# Docker image'ı build et
+docker build -t oleapizzeria-maintenance .
+
+# Container'ı çalıştır
+docker run -d -p 4001:4001 --name oleapizzeria-maintenance oleapizzeria-maintenance
+```
+
+### Docker Compose ile çalıştırma (Önerilen)
+
+```bash
+# Servisi başlat
+docker-compose up -d
+
+# Logları görüntüle
+docker-compose logs -f
+
+# Servisi durdur
+docker-compose down
+```
+
+### Güncelleme
+
+```bash
+# Yeni değişiklikleri aldıktan sonra
+docker-compose down
+docker-compose build --no-cache
+docker-compose up -d
+```
+
+## Nginx Proxy Ayarları
+
+Sunucunuzda `/etc/nginx/sites-available/oleapizzeria.com` dosyanız şu şekilde olmalı:
+
+```nginx
+server {
+    listen 80;
+    server_name oleapizzeria.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:4001;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+## CloudFlare DNS Ayarları
+
+- Tip: A
+- İsim: @
+- Değer: [Sunucu IP Adresi]
+- Proxy: On (Turuncu bulut)
+
+## Dosya Yapısı
+
+```
+.
+├── index.html          # Ana bakım sayfası
+├── Dockerfile          # Docker build ayarları
+├── docker-compose.yml  # Compose ayarları
+├── nginx.conf          # Nginx konfigürasyonu
+├── .gitignore         # Git ignore kuralları
+└── README.md          # Bu dosya
+```
+
+## Port Bilgisi
+
+- Container içi: 4001
+- Host makinesi: 4001
+- Nginx proxy: 80 → 4001
+
+Bu sayede oleapizzeria.com:80 → localhost:4001 proxy'si çalışacak.

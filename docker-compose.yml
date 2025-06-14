@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  oleapizzeria:
+    build: .
+    container_name: oleapizzeria-maintenance
+    ports:
+      - "4001:4001"
+    restart: unless-stopped
+    networks:
+      - web
+
+networks:
+  web:
+    external: false 
