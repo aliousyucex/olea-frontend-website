@@ -132,3 +132,48 @@ server {
 - Nginx proxy: 80 → 4001
 
 Bu sayede oleapizzeria.com:80 → localhost:4001 proxy'si çalışacak.
+
+## CI/CD Pipeline
+
+### GitHub Actions
+
+Bu proje otomatik CI/CD pipeline'ı içerir:
+
+**Pull Request'lerde:**
+- Docker build test
+- Container'ın çalışıp çalışmadığını test eder
+- Sorun varsa PR'ı red eder
+
+**Release'lerde:**
+- Docker image build eder
+- GitHub Container Registry'ye push eder
+- Release tag'ini kullanır (latest değil)
+
+### Release Yapma
+
+```bash
+# Git tag oluştur
+git tag v1.0.0
+git push origin v1.0.0
+
+# GitHub'da release oluştur
+# Otomatik olarak ghcr.io'ya push edilecek
+```
+
+### Sunucuda Production Deploy
+
+```bash
+# GitHub Container Registry'den çek
+docker pull ghcr.io/[username]/[repo-name]:v1.0.0
+
+# Eski container'ı durdur
+docker-compose down
+
+# Yeni image ile başlat
+docker run -d -p 4001:4001 --name oleapizzeria-maintenance ghcr.io/[username]/[repo-name]:v1.0.0
+```
+
+### Container Registry
+
+Image'lar şu adreste bulunur:
+`ghcr.io/[github-username]/[repo-name]:[tag]`
