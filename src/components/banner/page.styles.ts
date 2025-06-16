@@ -40,14 +40,14 @@ export namespace S {
   export const Title = styled.span`
     font-size: 48px;
     font-family: 'MuseoSans', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     padding: 20px;
   `;
 
   export const Text = styled.span`
     font-size: 24px;
     font-family: 'MuseoSans', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     padding: 20px;
   `;
 }

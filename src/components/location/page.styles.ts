@@ -62,13 +62,21 @@ export namespace S {
 
   export const BlackText = styled.p`
     color: #000;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 28px;
+    font-weight: 500;
   `;
 
   export const RedText = styled.p`
     color: #CE152D;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 0;
+  `;
+
+  export const PhoneText = styled.p`
+    color: #000;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 0;
   `;
 } 

@@ -67,13 +67,20 @@ export namespace S {
   export const MenuItemContainer = styled.div`
     position: relative;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   `;
 
   export const MenuItem = styled.div`
     font-size: 16px;
     color: #CE152D;
     cursor: pointer;
-    
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
     &:hover {
       opacity: 0.8;
     }

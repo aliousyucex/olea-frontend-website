@@ -20,6 +20,7 @@ import cocktails from "../../assets/menu/cocktails.jpg";
 import rossoEVerde from "../../assets/menu/rosso-e-verde.jpg";
 import semiFreddo from "../../assets/menu/semi-freddo.jpg";
 import {Flex} from "antd";
+import { useTranslation } from "react-i18next";
 
 const menuImages = [
   {src: tagliataManzo2, alt: "Tagliata di Manzo"},
@@ -54,6 +55,8 @@ const handleMenuClick = (action: string) => {
 };
 
 export const Menu = () => {
+  const {t} = useTranslation();
+  
   return (
     <S.Container id="menu">
       <S.Title>MENU</S.Title>
@@ -66,8 +69,8 @@ export const Menu = () => {
           ))}
         </S.GridContainer>
         <Flex justify="center" align="center" vertical gap={16}>
-          <S.Button type="text" size="large" onClick={() => handleMenuClick('food')}>Food Menu</S.Button>
-          <S.Button type="text" size="large" onClick={() => handleMenuClick('drinks')}>Drink Menu</S.Button>
+          <S.Button type="text" size="large" onClick={() => handleMenuClick('food')}>{t('Button.foodMenu')}</S.Button>
+          <S.Button type="text" size="large" onClick={() => handleMenuClick('drinks')}>{t('Button.drinkMenu')}</S.Button>
         </Flex>
 
       </Flex>
