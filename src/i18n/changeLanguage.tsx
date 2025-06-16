@@ -10,7 +10,7 @@ namespace S {
     color: #CE152D;
     padding: 0;
     font-family: 'MuseoSans', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     
     &:hover {
       opacity: 0.8;

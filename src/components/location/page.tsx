@@ -1,7 +1,10 @@
 import {S} from "./page.styles";
 import locationImage from "../../assets/location/lokasyon-resim.png";
+import { useTranslation } from "react-i18next";
 
 export const Location = () => {
+  const {t} = useTranslation();
+  
   const mapLocation = {
     address: "Yeni Çarşı Cad. No: 46/A, Galatasaray, Beyoğlu, İstanbul",
     // Using Google Maps embed without API key
@@ -37,11 +40,11 @@ export const Location = () => {
           Yeni Çarşı Cad. No: 46/A, Galatasaray, Beyoğlu, İstanbul
           </S.BlackText>
           <S.RedText>
-          For reservation please call
+          {t('Location.call')}
           </S.RedText>
-          <S.BlackText>
-          +90 212 252 27 54
-          </S.BlackText>
+          <S.PhoneText >
+            <a href="tel:+902122522754" style={{color: 'black', textDecoration: 'none'}}>+90 212 252 27 54</a>
+          </S.PhoneText>
         </S.TextSection>
       </S.Container>
     </S.WhiteBackground>

@@ -34,6 +34,13 @@ export const Header = () => {
     setIsMenuDropdownOpen(false);
     setIsMobileMenuOpen(false);
     
+    if (window.location.hash !== '#home' && action === 'location') {
+      window.navigateTo('home');
+      setTimeout(() => scrollToComponent('location'), 200);
+    } else if (window.location.hash === '#home' && action === 'location') {
+      scrollToComponent('location')
+    }
+
     switch (action) {
       case 'preview':
         // If we're not on home page, navigate to home first
@@ -72,17 +79,17 @@ export const Header = () => {
             <S.MenuItem>{t('Header.menu')}</S.MenuItem>
             <S.DropdownMenu isOpen={isMenuDropdownOpen}>
               <S.DropdownItem onClick={() => handleMenuClick('preview')}>
-                Go to preview
+                {t('Button.goToPreview')}
               </S.DropdownItem>
               <S.DropdownItem onClick={() => handleMenuClick('food')}>
-                Food menu
+                {t('Button.foodMenu')}
               </S.DropdownItem>
               <S.DropdownItem onClick={() => handleMenuClick('drinks')}>
-                Drink menu
+                {t('Button.drinkMenu')}
               </S.DropdownItem>
             </S.DropdownMenu>
           </S.MenuItemContainer>
-          <S.MenuItem onClick={() => scrollToComponent('location')}>{t('Header.rezervation')}</S.MenuItem>
+          <S.MenuItem onClick={() => handleMenuClick('location')}>{t('Header.rezervation')}: <a href="tel:+902122522754" style={{color: 'black', textDecoration: 'none'}}>+90 212 252 27 54</a></S.MenuItem>
           <S.MenuItem onClick={handleFollowUs}>{t('Header.followUs')}</S.MenuItem>
           <ChangeLanguageButton />
         </S.MenuContainer>
@@ -93,10 +100,10 @@ export const Header = () => {
       </S.Header>
 
       <S.MobileMenu isOpen={isMobileMenuOpen}>
-        <S.MobileMenuItem onClick={() => handleMenuClick('preview')}>{t('Header.menu')} - Go to preview</S.MobileMenuItem>
-        <S.MobileMenuItem onClick={() => handleMenuClick('food')}>Food menu</S.MobileMenuItem>
-        <S.MobileMenuItem onClick={() => handleMenuClick('drinks')}>Drink menu</S.MobileMenuItem>
-        <S.MobileMenuItem onClick={() => scrollToComponent('location')}>{t('Header.rezervation')}</S.MobileMenuItem>
+        <S.MobileMenuItem onClick={() => handleMenuClick('preview')}>{t('Header.menu')} - {t('Button.goToPreview')}</S.MobileMenuItem>
+        <S.MobileMenuItem onClick={() => handleMenuClick('food')}>{t('Button.foodMenu')}</S.MobileMenuItem>
+        <S.MobileMenuItem onClick={() => handleMenuClick('drinks')}>{t('Button.drinkMenu')}</S.MobileMenuItem>
+        <S.MobileMenuItem onClick={() => handleMenuClick('location')}>{t('Header.rezervation')}</S.MobileMenuItem>
         <S.MobileMenuItem onClick={handleFollowUs}>{t('Header.followUs')}</S.MobileMenuItem>
         <S.MobileMenuItem onClick={() => changeCurrentLanguage()}>
           {getCurrentLanguageCode() === 'en' ? 'TR' : 'EN'}

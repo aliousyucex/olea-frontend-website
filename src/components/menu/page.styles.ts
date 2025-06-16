@@ -79,6 +79,7 @@ export namespace S {
     margin-top: 32px;
     color: #CE152D;
     font-size: 24px;
+    font-weight: 500;
 
     &:hover {
       color: #CE152D;

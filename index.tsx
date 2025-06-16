@@ -10,12 +10,19 @@ import {Location} from "./src/components/location/page";
 import {FoodMenu} from "./src/components/pages/FoodMenu/FoodMenu";
 import {DrinkMenu} from "./src/components/pages/DrinkMenu/DrinkMenu";
 import './src/i18n/i18n';
+import injectFonts from './src/assets/fonts/fonts';
+import { Footer } from './src/components/footer/page';
 
 type PageType = 'home' | 'foodMenu' | 'drinkMenu';
 
 const App = () => {
   const {t} = useTranslation();
   const [currentPage, setCurrentPage] = useState<PageType>('home');
+
+  // Inject fonts on app startup
+  useEffect(() => {
+    injectFonts();
+  }, []);
 
   // Simple routing based on hash
   useEffect(() => {
@@ -61,6 +68,7 @@ const App = () => {
             <About />
             <Menu />
             <Location />
+            <Footer />
           </div>
         );
     }
