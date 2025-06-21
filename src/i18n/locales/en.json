@@ -8,9 +8,9 @@
     "description": "Olea Osteria brings the soul of Italy to Galatasaray, Beyoğlu with authentic and gourmet dishes prepared from special Italian recipes and homemade ingredients. With its warm, sincere, and welcoming atmosphere, Olea is a gathering place for those who appreciate Italian fine dining and savor the richness of true culinary craftsmanship. Each plate tells a story—of passion, tradition, and the timeless flavor of Italian cuisine."
   },
   "Button": {
-    "goToPreview": "Go to preview",
-    "foodMenu": "Food menu",
-    "drinkMenu": "Drink menu"
+    "goToPreview": "Visual Menu",
+    "foodMenu": "Food Menu",
+    "drinkMenu": "Drink Menu"
   },
   "Location": {
     "call": "For reservation please call"

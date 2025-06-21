@@ -21,6 +21,10 @@ export namespace S {
     font-size: 48px;
     text-align: center;
     margin-bottom: 60px;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
   `;
 
   export const GridContainer = styled.div`
