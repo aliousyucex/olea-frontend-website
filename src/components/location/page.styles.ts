@@ -64,19 +64,29 @@ export namespace S {
     color: #000;
     font-size: 28px;
     font-weight: 500;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
   `;
 
   export const RedText = styled.p`
     color: #CE152D;
     font-size: 36px;
     font-weight: 300;
-    line-height: 0;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
   `;
 
   export const PhoneText = styled.p`
     color: #000;
     font-size: 36px;
     font-weight: 500;
-    line-height: 0;
+    
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
   `;
 } 
