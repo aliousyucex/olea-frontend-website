@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import { Header } from '../../header/page.tsx';
 import { S } from './FoodMenu.styles.ts';
-import foodMenuImage from '../../../assets/menuImages/food-1.png';
-import foodMenuImage2 from '../../../assets/menuImages/food-2.png';
+import foodMenuImage from '../../../assets/menuImages/food-1.jpg';
+import foodMenuImage2 from '../../../assets/menuImages/food-2.jpg';
 
 
 export const FoodMenu: React.FC = () => {
